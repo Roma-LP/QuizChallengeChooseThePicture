@@ -1,7 +1,6 @@
 using QuizChallenge.Scripts.Cells;
 using QuizChallenge.Scripts.Scriptables;
 using QuizChallenge.Scripts.Extensions;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +8,6 @@ namespace QuizChallenge.Scripts
 {
     public class CellDataLoader : MonoBehaviour
     {
-        [SerializeField] private List<SpritesGamePlay> _availableSpritesGamePlays; // delete ------------------------------------------------
         [SerializeField] private CellAnimations _cellAnimations;
 
         private List<SpritesGamePlay> _usedSpritesGamePlay;
@@ -33,8 +31,6 @@ namespace QuizChallenge.Scripts
             _availableSpritesData.RemoveSpritesGamePlay(TaskCell.SpritesGamePlay, dataSets.Identifier);
             _usedSpritesGamePlay.Clear();
 
-            //if (!cells.First().gameObject.activeSelf)
-            //    _pictureAnimations.ShowCell(cells);
             _cellAnimations.SetCells(cells);
 
             return TaskCell;

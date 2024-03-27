@@ -11,12 +11,14 @@ namespace QuizChallenge.Scripts.Scriptables
         [SerializeField] private float _cellWidth = 1;
         [SerializeField] private float _cellHeight = 1;
         [SerializeField] private float _spacing = 0.1f;
+        [SerializeField] private float _borderWidth = 0.1f;
 
         public byte Rows => _rows;
         public byte Columns => _columns;
         public float CellWidth => _cellWidth;
         public float CellHeight => _cellHeight;
         public float Spacing => _spacing;
+        public float BorderWidth => _borderWidth;
         public DataSets DataSets => _dataSets;
     }
 }

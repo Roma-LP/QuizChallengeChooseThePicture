@@ -9,29 +9,37 @@ namespace QuizChallenge.Scripts
     public class GridCreator : MonoBehaviour
     {
         [SerializeField] private Transform _container;
-        [SerializeField] private Cell cellPrefab; // Префаб ячейки
-        [SerializeField] private GameObject backgroundPrefab; // Префаб фона с рамкой
+        [SerializeField] private Cell cellPrefab;
+        [SerializeField] private GameObject _backgroundSprite;
 
-        [SerializeField] private List<Cell> _cells = new List<Cell>();
+        private List<Cell> _cells = new List<Cell>();
+        private GameObject _backgroundSpriteInstantiated;
+
+        private void Clear()
+        {
+            for (int i = 0; i < _cells.Count;)
+            {
+                DestroyImmediate(_cells[i].gameObject);
+
+                _cells.RemoveAt(i);
+            }
+        }
 
         public List<Cell> Generate(LevelData levelData, bool isFirstLaunch = false)
         {
             Clear();
 
-            // Рассчитываем размеры фона с рамкой
-            float gridWidth = levelData.Columns * (levelData.CellWidth + levelData.Spacing) - levelData.Spacing + levelData.Spacing * 2;//borderWidth
-            float gridHeight = levelData.Rows * (levelData.CellHeight + levelData.Spacing) - levelData.Spacing + levelData.Spacing * 2;
+            float gridWidth = levelData.Columns * (levelData.CellWidth + levelData.Spacing) - levelData.Spacing + levelData.BorderWidth * 2;//borderWidth
+            float gridHeight = levelData.Rows * (levelData.CellHeight + levelData.Spacing) - levelData.Spacing + levelData.BorderWidth * 2;
 
-            // Создаем фон с рамкой
-            GameObject background = Instantiate(backgroundPrefab, transform.position, Quaternion.identity);
-            background.transform.localScale = new Vector3(gridWidth, gridHeight, 1);
-            background.transform.parent = _container;
+            if(_backgroundSpriteInstantiated == null)
+                _backgroundSpriteInstantiated = Instantiate(_backgroundSprite, transform.position, Quaternion.identity);
+            _backgroundSpriteInstantiated.transform.localScale = new Vector3(gridWidth, gridHeight, 1);
+            _backgroundSpriteInstantiated.transform.parent = _container;
 
-            // Рассчитываем положение левого верхнего угла сетки
-            float startX = -(gridWidth / 2) + (levelData.CellWidth / 2) + levelData.Spacing;//borderWidth
-            float startY = gridHeight / 2 - (levelData.CellHeight / 2) - levelData.Spacing; //borderWidth
+            float startX = -(gridWidth / 2) + (levelData.CellWidth / 2) + levelData.BorderWidth;//borderWidth
+            float startY = gridHeight / 2 - (levelData.CellHeight / 2) - levelData.BorderWidth; //borderWidth
 
-            // Создаем ячейки
             for (int row = 0; row < levelData.Rows; row++)
             {
                 for (int col = 0; col < levelData.Columns; col++)
@@ -50,16 +58,6 @@ namespace QuizChallenge.Scripts
             }
 
             return _cells;
-        }
-
-        private void Clear()
-        {
-            for (int i = 0; i < _cells.Count;)
-            {
-                DestroyImmediate(_cells[i].gameObject);
-
-                _cells.RemoveAt(i);
-            }
         }
     }
 }

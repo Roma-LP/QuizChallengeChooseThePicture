@@ -287,8 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faacf9265a1a9f44fa99763dfae61d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _duration: 0.5
-  _durationBetweenCells: 0.3
+  _duration: 0.6
+  _durationBetweenCells: 0.5
   _clickHandler: {fileID: 1349526832}
 --- !u!114 &447166790
 MonoBehaviour:
@@ -302,7 +302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb733b7f97a227142a34e6a69f6bf3d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _availableSpritesGamePlays: []
   _cellAnimations: {fileID: 447166789}
 --- !u!1 &519420028
 GameObject:
@@ -1181,8 +1180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _container: {fileID: 579060717}
   cellPrefab: {fileID: 916013054729745916, guid: 9243a959e72512e48827eda04b75c013, type: 3}
-  backgroundPrefab: {fileID: 916013054729745664, guid: 08ca8e1c27fd1e449bb92dcb25367161, type: 3}
-  _cells: []
+  _backgroundSprite: {fileID: 916013054729745664, guid: 08ca8e1c27fd1e449bb92dcb25367161, type: 3}
 --- !u!4 &1957611161
 Transform:
   m_ObjectHideFlags: 0
