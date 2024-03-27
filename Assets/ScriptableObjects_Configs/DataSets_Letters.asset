@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99dec9f8bd2906b479d8f24e2faa87ee, type: 3}
   m_Name: DataSets_Letters
   m_EditorClassIdentifier: 
-  _scaleSprites: 0.3
+  _scaleSprites: 0.25
   _identifier: Letters
   _spritesGamePlay:
   - _sprite: {fileID: 4963718625464178563, guid: d7d78bc7a0d2e28438279fcb45ea01b4, type: 3}

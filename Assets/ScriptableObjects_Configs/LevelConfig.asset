@@ -16,21 +16,21 @@ MonoBehaviour:
   - _dataSets: {fileID: 11400000, guid: 2d2c847bc03cd264baf79e463ad4c1b6, type: 2}
     _rows: 1
     _columns: 3
-    _cellWidth: 1
-    _cellHeight: 1
+    _cellWidth: 1.5
+    _cellHeight: 1.5
     _spacing: 0.2
     _borderWidth: 0.2
   - _dataSets: {fileID: 11400000, guid: a5ed954060c7d67499ee0d5f26c7c988, type: 2}
     _rows: 2
     _columns: 3
-    _cellWidth: 1
-    _cellHeight: 1
+    _cellWidth: 1.5
+    _cellHeight: 1.5
     _spacing: 0.2
     _borderWidth: 0.2
   - _dataSets: {fileID: 11400000, guid: 2d2c847bc03cd264baf79e463ad4c1b6, type: 2}
     _rows: 3
     _columns: 3
-    _cellWidth: 1
-    _cellHeight: 1
+    _cellWidth: 1.5
+    _cellHeight: 1.5
     _spacing: 0.2
     _borderWidth: 0.2

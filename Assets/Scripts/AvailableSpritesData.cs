@@ -1,11 +1,9 @@
 using QuizChallenge.Scripts.Extensions;
 using QuizChallenge.Scripts.Scriptables;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace QuizChallenge.Scripts
 {
-    //[System.Serializable]
     public class AvailableSpritesData
     {
         private List<DataSets> _dataSets;
@@ -35,9 +33,6 @@ namespace QuizChallenge.Scripts
 
         public void RemoveSpritesGamePlay(SpritesGamePlay spritesGamePlay, string identifierde)
         {
-            //DataSets dataSets = _dataSets.Find(x => x.Identifier == identifierde);
-            //dataSets.SpritesGamePlay.Remove(spritesGamePlay);
-
             _dataSets.Find(x => x.Identifier == identifierde).SpritesGamePlay.Remove(spritesGamePlay);
         }
     }

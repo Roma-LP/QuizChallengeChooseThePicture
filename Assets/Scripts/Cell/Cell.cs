@@ -8,12 +8,8 @@ namespace QuizChallenge.Scripts.Cells
     public class Cell : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField] private SpriteRenderer _cellItem;
-        [SerializeField] private Vector2Int _position;
-        [SerializeField] private float _cellWidth;
-        [SerializeField] private float _cellHeight;
         [SerializeField] private PictureAnimations _cellAnimations;
 
-        private byte _numberCell;
         private SpritesGamePlay _spritesGamePlay;
 
         public SpriteRenderer CellItem => _cellItem;
@@ -22,18 +18,12 @@ namespace QuizChallenge.Scripts.Cells
 
         public event Action<Cell> CellClicked;
 
-        public void Init(byte numberCell, float cellWidth, float cellHeight, Vector2Int position, float scale)
+        public void Init(float cellWidth, float cellHeight, Vector2Int position, float scale)
         {
-            _numberCell = numberCell;
-            _position = position;
-            _cellWidth = cellWidth;
-            _cellHeight = cellHeight;
-            // _spritesGamePlay = spritesGamePlay;
             _cellItem.transform.localScale = new Vector3(scale, scale, scale);
 
-
-            transform.localScale = new Vector3(_cellWidth, _cellHeight, 1);
-            name = $"X: {_position.x}, Y:{_position.y}";
+            gameObject.transform.localScale = new Vector3(cellWidth, cellHeight, 1);
+            name = $"X: {position.x}, Y:{position.y}";
         }
 
         public void SetDataCell(SpritesGamePlay spritesGamePlay)

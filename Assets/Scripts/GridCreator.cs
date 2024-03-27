@@ -1,6 +1,5 @@
 using QuizChallenge.Scripts.Scriptables;
 using QuizChallenge.Scripts.Cells;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,16 +28,17 @@ namespace QuizChallenge.Scripts
         {
             Clear();
 
-            float gridWidth = levelData.Columns * (levelData.CellWidth + levelData.Spacing) - levelData.Spacing + levelData.BorderWidth * 2;//borderWidth
+            float gridWidth = levelData.Columns * (levelData.CellWidth + levelData.Spacing) - levelData.Spacing + levelData.BorderWidth * 2;
             float gridHeight = levelData.Rows * (levelData.CellHeight + levelData.Spacing) - levelData.Spacing + levelData.BorderWidth * 2;
 
             if(_backgroundSpriteInstantiated == null)
                 _backgroundSpriteInstantiated = Instantiate(_backgroundSprite, transform.position, Quaternion.identity);
+
             _backgroundSpriteInstantiated.transform.localScale = new Vector3(gridWidth, gridHeight, 1);
             _backgroundSpriteInstantiated.transform.parent = _container;
 
-            float startX = -(gridWidth / 2) + (levelData.CellWidth / 2) + levelData.BorderWidth;//borderWidth
-            float startY = gridHeight / 2 - (levelData.CellHeight / 2) - levelData.BorderWidth; //borderWidth
+            float startX = -(gridWidth / 2) + (levelData.CellWidth / 2) + levelData.BorderWidth;
+            float startY = gridHeight / 2 - (levelData.CellHeight / 2) - levelData.BorderWidth;
 
             for (int row = 0; row < levelData.Rows; row++)
             {
@@ -48,7 +48,7 @@ namespace QuizChallenge.Scripts
                     float y = startY - row * (levelData.CellHeight + levelData.Spacing);
 
                     Cell cell = Instantiate(cellPrefab, new Vector3(x, y, 0), Quaternion.identity);
-                    cell.Init((byte)(_cells.Count - 1), levelData.CellWidth, levelData.CellHeight, new Vector2Int(row, col), levelData.DataSets.ScaleSprites);
+                    cell.Init(levelData.CellWidth, levelData.CellHeight, new Vector2Int(row, col), levelData.DataSets.ScaleSprites);
                     cell.transform.parent = _container;
                     _cells.Add(cell);
 
